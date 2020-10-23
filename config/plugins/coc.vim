@@ -69,12 +69,6 @@ function! s:load_coc() abort
 endfunction
 
 
-" Mappings {{{
-" --------
-" <c-x><c-g>: start ultisnips completion
-inoremap <silent> <C-X><C-G> <C-R>=coc#start({ 'source': 'ultisnips' })<CR>
-
-
 " Extensions
 " ----------
 
@@ -82,15 +76,20 @@ inoremap <silent> <C-X><C-G> <C-R>=coc#start({ 'source': 'ultisnips' })<CR>
 " -------
 nmap <silent> <expr> [c &diff ? '[c' : '<Plug>(coc-git-prevchunk)'
 nmap <silent> <expr> ]c &diff ? ']c' : '<Plug>(coc-git-nextchunk)'
-nmap <leader>hi <Plug>(coc-git-chunkinfo)
-nnoremap <leader>hs :CocCommand git.chunkStage<cr>
-nnoremap <leader>hu :CocCommand git.chunkUndo<cr>
 
 " coc-snippet
 " -----------
 let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
 
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <leader>x for convert visual selected code to snippet
+xmap <leader>x  <Plug>(coc-convert-snippet)
 
 " Commands
 " --------

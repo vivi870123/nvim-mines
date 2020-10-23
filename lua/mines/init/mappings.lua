@@ -407,11 +407,11 @@ local mappings = {
   ['n ca'] = { [[<cmd>CocList actions<CR> ]], description = 'LSP code actions' },
 
   -- Git mappings <leader>g
-  ['n gcu'] = { [[<Cmd>GitGutterUndoHunk<CR>]], description = 'Undo chunk' },
-  ['n gcs'] = { [[<Cmd>GitGutterStageHunk<CR>]], description = 'Stage chunk' },
-  ['n gcn'] = { [[<Cmd>GitGutterNextHunk<CR>]], description = 'Next chunk' },
-  ['n gcp'] = { [[<Cmd>GitGutterPrevHunk<CR>]], description = 'Previous chunk' },
-  ['n gci'] = { [[<Cmd>GitGutterPreviewHunk<CR>]], description = 'Chunk info' },
+  ['n gcu'] = { [[<Cmd>CocCommand git.chunkUndo<CR>]], description = 'Undo chunk' },
+  ['n gcs'] = { [[<Cmd>CocCommand git.chunkStage<CR>]], description = 'Stage chunk' },
+  ['n gcn'] = { [[<Plug>(coc-git-nextchunk)]], description = 'Next chunk' },
+  ['n gcp'] = { [[<Plug>(coc-git-prevchunk)]], description = 'Previous chunk' },
+  ['n gci'] = { [[<Plug>(coc-git-chunkinfo)]], description = 'Chunk info' },
   ['n gB'] = { function() mines.git.checkout_git_branch_fzf(vim.fn.expand("%:p:h")) end , description = 'Checkout branch' },
   ['n gs'] = { [[<Cmd>G<CR>]], description = 'Git status' },
   ['n gd'] = { [[<Cmd>Gdiffsplit<CR>]], description = 'Git diff' },
